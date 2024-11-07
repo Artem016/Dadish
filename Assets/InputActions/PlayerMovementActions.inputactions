@@ -1,0 +1,67 @@
+{
+    "name": "PlayerMovementActions",
+    "maps": [
+        {
+            "name": "PlayerMovement",
+            "id": "63a5015e-f628-4eaa-a18d-3d3e68fa2f54",
+            "actions": [
+                {
+                    "name": "Walk",
+                    "type": "Button",
+                    "id": "2ee20947-730a-423d-9c35-e65995bea2ef",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "LeftRight",
+                    "id": "c4c4a470-2449-4507-bf4e-0c4bd5d609fc",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Walk",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "db9a2d36-939a-459b-ae1c-edf510224b05",
+                    "path": "a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Walk",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "38b25ab1-cc6e-41b3-a335-e715b11afc3c",
+                    "path": "d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Walk",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "c7839b00-cf0b-4eaa-aea7-dbcdebda79fa",
+                    "path": " ",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Walk",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
