@@ -84,4 +84,17 @@ public class PlayerMovement : MonoBehaviour
         }
             
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.tag == "Ground")
+        {
+            Land();
+        }
+    }
+
+    private void Land()
+    {
+        _isSecondJumpUse = false;
+    }
 }
