@@ -1,0 +1,21 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ButtonPlane : MonoBehaviour
+{
+    public Action onClick; 
+    private Animator _animator;
+
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        onClick?.Invoke();
+        _animator.SetTrigger("OnClick");
+    }
+}
