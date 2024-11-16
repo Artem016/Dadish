@@ -5,17 +5,15 @@ using UnityEngine;
 
 public class ButtonPlane : MonoBehaviour
 {
-    public Action onClick; 
-    private Animator _animator;
-
-    private void Start()
+    private void SetPressedVisual()
     {
-        _animator = GetComponent<Animator>();
+        var newScale = transform.localScale;
+        newScale.y = 0.5f;
+        transform.localScale = newScale;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        onClick?.Invoke();
-        _animator.SetTrigger("OnClick");
+        SetPressedVisual();
     }
 }

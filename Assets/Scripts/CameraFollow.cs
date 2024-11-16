@@ -9,15 +9,36 @@ public class CameraFollow : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var newPosition = transform.position;
-        newPosition.x = _target.position.x;
-        if(IsCameraPositionWithinBounds(newPosition, leftDownLimition.position, rightUpLimition.position))
+        var newPositionX = _target.position.x;
+        var newPositionY = _target.position.y;
+        //newPosition.x = _target.position.x;
+        //newPosition.y = _target.position.y;
+        if(IsCameraPositionWithinBoundsHorizontal(newPositionX, leftDownLimition.position, rightUpLimition.position))
+        {
+            var newPosition = transform.position;
+            newPosition.x = newPositionX;
             transform.position = newPosition;
+        }
+
+        if(IsCameraPositionWithinBoundsVertical(newPositionY,leftDownLimition.position, rightUpLimition.position))
+        {
+            var newPosition = transform.position;
+            newPosition.y = newPositionY;
+            transform.position = newPosition;
+        }
+
     }
 
-    private bool IsCameraPositionWithinBounds(Vector2 cameraPosition, Vector2 bottomLeftLimit, Vector2 topRightLimit)
+    private bool IsCameraPositionWithinBoundsHorizontal(float cameraPositionX, Vector2 bottomLeftLimit, Vector2 topRightLimit)
     {
-        if (cameraPosition.x >= bottomLeftLimit.x && cameraPosition.y >= bottomLeftLimit.y && cameraPosition.x <= topRightLimit.x && cameraPosition.y <= topRightLimit.y) 
+        if (cameraPositionX >= bottomLeftLimit.x && cameraPositionX <= topRightLimit.x) 
+            return true;
+        else
+            return false;
+    }    
+    private bool IsCameraPositionWithinBoundsVertical(float cameraPositionY, Vector2 bottomLeftLimit, Vector2 topRightLimit)
+    {
+        if (cameraPositionY >= bottomLeftLimit.y && cameraPositionY <= topRightLimit.y) 
             return true;
         else
             return false;
