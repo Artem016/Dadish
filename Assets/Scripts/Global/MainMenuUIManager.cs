@@ -5,9 +5,9 @@ using UnityEngine;
 public class MainMenuUIManager : MonoBehaviour
 {
     [SerializeField] private SingletonReferencesSO _mainMenuReferences;
-    public void StartButtonClick()
+    public void LevelButtonClick(int numberLevel)
     {
-        _mainMenuReferences.GetSceneManager().LoadLevel(1);
+        _mainMenuReferences.GetSceneManager().LoadLevel(numberLevel);
     }
 
     public void ExitButtonOnClick()
