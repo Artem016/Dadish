@@ -8,8 +8,6 @@ public class PlayerMovement : MonoBehaviour, IMovement
 
     [SerializeField] private float _jumpForce;
 
-    [SerializeField] private float _distanceToCheckGround = 0.1f;
-
     [SerializeField] private float _playersMovementSpeed;
 
     [SerializeField] private Transform _downPointLeft;
