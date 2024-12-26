@@ -8,7 +8,6 @@ public class VictoryZone : MonoBehaviour, IInteractable
 
     public void Interact(Player player)
     {
-        Debug.LogError(0);
         referencesSO.GetSceneManager().LoadMainMenu();
     }
 

@@ -6,8 +6,4 @@ public class StartScreenManager : MonoBehaviour
 {
     [SerializeField] private SingletonReferencesSO _mainMenuReferences;
 
-    public void PressAnyKeyZoneOnClick()
-    {
-        _mainMenuReferences.GetSceneManager().LoadTestLevel();
-    }
 }

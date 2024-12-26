@@ -1,16 +1,20 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour, IInterScene
 {
-    private string _currentScene = "MainMenu";
-    private readonly string _testLevelScene = "TestLevel";
-    private readonly string _firstLevel = "Level1";
+    public static Action<int> onLoadLevel;
+    public static Action onLoadMainMenu;
+
+    //перенести в so 
+    private static string _currentScene = _mainMenuSceneName;
+    private static readonly string _mainMenuSceneName = "MainMenu";
+    [SerializeField] private List<string> _levels;
 
     [SerializeField] private SingletonReferencesSO _referencesSO;
+    
 
     private void Awake()
     {
@@ -18,39 +22,16 @@ public class SceneController : MonoBehaviour, IInterScene
         _referencesSO.SetSceneManager(this);
     }
 
-    public void LoadTestLevel()
-    {
-        SceneManager.LoadScene(_testLevelScene);
-        _currentScene = _testLevelScene;
-    }
-
     public void LoadLevel(int number)
     {
-        switch (number)
+        if(number <= _levels.Count)
         {
-            case 1:
-                SceneManager.LoadScene("Level1");
-                break;
-            case 2:
-                SceneManager.LoadScene("Level2");
-                break;
-            default:
-                break;
+            onLoadLevel?.Invoke(number);
+            SceneManager.LoadScene(_levels[number]);
         }
-    }
-
-    public void LoadLevel(SaveData saveData)
-    {
-        switch (saveData.currentLevelIndex)
+        else
         {
-            case 1:
-                SceneManager.LoadScene("Level1");
-                break;
-            case 2:
-                SceneManager.LoadScene("Level2");
-                break;
-            default:
-                break;
+            Debug.LogError("this number of level is not found");
         }
     }
 
@@ -65,6 +46,7 @@ public class SceneController : MonoBehaviour, IInterScene
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        onLoadMainMenu?.Invoke();
+        SceneManager.LoadScene(_mainMenuSceneName);
     }
 }

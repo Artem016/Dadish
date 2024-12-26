@@ -17,10 +17,10 @@ public class SaveManager : MonoBehaviour
     private void Start()
     {
         savePath = Application.persistentDataPath + "/save.json";
-        var saveData = LoadGame();
+        //var saveData = LoadGame();
 
-        if (saveData.currentLevelIndex > 0)
-            referencesSO.GetSceneManager().LoadLevel(saveData);
+        //if (saveData.currentLevelIndex > 0)
+        //    referencesSO.GetSceneManager().LoadLevel(saveData.currentLevelIndex);
     }
 
     // Сохранение данных
@@ -43,7 +43,7 @@ public class SaveManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Save file not found!");
+            Debug.Log("Save file not found, start new game");
             return null;
         }
     }
