@@ -7,7 +7,14 @@ public class LevelButton : MonoBehaviour
 {
     [SerializeField] private GameObject _blockedVisual;
     [SerializeField] private Button _button;
-    private bool _isBlocked = false;
+    [SerializeField] private int _levelNumber;
+    [SerializeField] private bool _isBlocked = true;
+
+    private void Start()
+    {
+        SetBlocked(_isBlocked);
+    }
+
     public void SetBlocked(bool isBlocked)
     {
         _isBlocked = isBlocked;
@@ -21,5 +28,10 @@ public class LevelButton : MonoBehaviour
             _blockedVisual.SetActive(false);
             _button.interactable = true;
         }
+    }
+
+    public int GetLevelNumber()
+    {
+        return _levelNumber;
     }
 }

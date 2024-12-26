@@ -1,56 +1,85 @@
+п»їusing Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
-    [SerializeField] private SingletonReferencesSO referencesSO;
+    public static Action OnLoadSave;
+    public static Action OnLoadEmptySave;
+
+    [SerializeField] private SingletonReferencesSO _referencesSO;
+    [SerializeField] private SavesSO _savesSO;
+
 
     private static string savePath;
 
     private void Awake()
     {
-        referencesSO.SetSaveManager(this);
+        _referencesSO.SetSaveManager(this);
+        savePath = Application.persistentDataPath + "/save.json";
+        if (!File.Exists(savePath))
+        {
+            File.Create(savePath);
+        }
     }
 
     private void Start()
     {
-        savePath = Application.persistentDataPath + "/save.json";
-        //var saveData = LoadGame();
-
-        //if (saveData.currentLevelIndex > 0)
-        //    referencesSO.GetSceneManager().LoadLevel(saveData.currentLevelIndex);
+        
+        Load();
     }
 
-    // Сохранение данных
-    public static void SaveGame(SaveData data)
+    public void Save()
     {
-        string json = JsonUtility.ToJson(data, true);
-        File.WriteAllText(savePath, json);
-        Debug.Log("Game Saved to: " + savePath);
-    }
-
-    // Загрузка данных
-    public static SaveData LoadGame()
-    {
-        if (File.Exists(savePath))
+        if (!File.Exists(savePath))
         {
-            string json = File.ReadAllText(savePath);
-            SaveData data = JsonUtility.FromJson<SaveData>(json);
-            Debug.Log("Game Loaded from: " + savePath);
-            return data;
+            File.Create(savePath);
         }
-        else
+
+        JsonSerializer serializer = new JsonSerializer();
+        SaveData saveData = new SaveData();
+        saveData.CompletedLevels = _savesSO.ComletedLevels;
+        string json = JsonConvert.SerializeObject(saveData);
+        File.WriteAllText(savePath, json);
+    }
+
+    public void Load()
+    {
+        if (!File.Exists(savePath))
         {
-            Debug.Log("Save file not found, start new game");
-            return null;
+            File.Create(savePath);
+        }
+        using (StreamReader sr = new StreamReader(savePath))
+        {
+            string json = sr.ReadToEnd();
+            var deserializeSave = JsonConvert.DeserializeObject<SaveData>(json);
+
+            if (deserializeSave == null)
+            {
+                _savesSO.ComletedLevels = new List<int>();
+            }
+            else
+            {
+                _savesSO.ComletedLevels = deserializeSave.CompletedLevels;
+            }
+
+            if(_savesSO.ComletedLevels.Count <= 0)
+            {
+                OnLoadEmptySave?.Invoke();
+            }
+            else
+            {
+                OnLoadSave?.Invoke();
+            }
         }
     }
 }
 
 public class SaveData
 {
-    public string name;
-    public int currentLevelIndex;
+    public List<int> CompletedLevels;
 }
