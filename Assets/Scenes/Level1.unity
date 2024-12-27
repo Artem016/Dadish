@@ -3209,6 +3209,10 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2003012664974962333, guid: aacee61f4a3cae6448ca2806e1a9ed00, type: 3}
+      propertyPath: levelNumber
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6033201036850131333, guid: aacee61f4a3cae6448ca2806e1a9ed00, type: 3}
       propertyPath: m_Name
       value: VictiryZone

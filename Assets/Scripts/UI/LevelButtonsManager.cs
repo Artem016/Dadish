@@ -11,12 +11,15 @@ public class LevelButtonsManager : MonoBehaviour
     {
         SaveManager.OnLoadSave += OnSaveLoad;
         SaveManager.OnLoadEmptySave += OnSaveLoad;
+        SaveManager.OnSaveChange += OnSaveLoad;
     }
 
     private void OnDestroy()
     {
         SaveManager.OnLoadSave -= OnSaveLoad;
         SaveManager.OnLoadEmptySave -= OnSaveLoad;
+        SaveManager.OnSaveChange -= OnSaveLoad;
+
     }
 
     public void OnSaveLoad()
@@ -33,8 +36,9 @@ public class LevelButtonsManager : MonoBehaviour
     {
         foreach (var levelButton in _levelButtons)
         {
-            if (_saves.ComletedLevels.Contains(levelButton.GetLevelNumber()))
+            if (_saves.ComletedLevels.Contains(levelButton.GetLevelNumber() - 1))
             {
+                Debug.LogError(0);
                 levelButton.SetBlocked(false);
             }
         }

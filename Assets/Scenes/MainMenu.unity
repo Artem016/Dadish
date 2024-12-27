@@ -422,6 +422,7 @@ MonoBehaviour:
   _blockedVisual: {fileID: 12630935}
   _button: {fileID: 168345742}
   _levelNumber: 0
+  _isBlocked: 1
 --- !u!1 &322068281
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +572,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blockedVisual: {fileID: 156644961}
   _button: {fileID: 322068283}
-  _levelNumber: 0
+  _levelNumber: 1
+  _isBlocked: 1
 --- !u!1 &486781882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,7 +1010,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blockedVisual: {fileID: 1447026761}
   _button: {fileID: 802536196}
-  _levelNumber: 0
+  _levelNumber: 2
+  _isBlocked: 1
 --- !u!1 &813529201
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,6 +1295,7 @@ MonoBehaviour:
   _blockedVisual: {fileID: 1103144415}
   _button: {fileID: 837670819}
   _levelNumber: 0
+  _isBlocked: 1
 --- !u!1 &854984527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,6 +1608,7 @@ MonoBehaviour:
   _blockedVisual: {fileID: 1668973470}
   _button: {fileID: 1009496012}
   _levelNumber: 0
+  _isBlocked: 0
 --- !u!1 &1103144415
 GameObject:
   m_ObjectHideFlags: 0
@@ -1929,7 +1934,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1668973471
 RectTransform:
   m_ObjectHideFlags: 0

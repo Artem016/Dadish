@@ -10,6 +10,7 @@ public class SaveManager : MonoBehaviour
 {
     public static Action OnLoadSave;
     public static Action OnLoadEmptySave;
+    public static Action OnSaveChange;
 
     [SerializeField] private SingletonReferencesSO _referencesSO;
     [SerializeField] private SavesSO _savesSO;
@@ -31,6 +32,17 @@ public class SaveManager : MonoBehaviour
     {
         
         Load();
+    }
+
+    public void AddComplatedLevel(int numberLevel)
+    {
+        if (!_savesSO.ComletedLevels.Contains(numberLevel))
+        {
+            Debug.LogError(0);
+            _savesSO.ComletedLevels.Add(numberLevel);
+            OnSaveChange?.Invoke();
+            Save();
+        }
     }
 
     public void Save()

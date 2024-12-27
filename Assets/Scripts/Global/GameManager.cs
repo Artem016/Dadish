@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour, IInterScene
 
     public void GameOver()
     {
-        _referencesSO.GetSceneManager().ReloadCurrentScene();
+        _referencesSO.GetSceneManager().LoadMainMenu();
     }
 
     private void OnPlayerDies()
