@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour, IMovement
+public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private InputAction _jumpAction;
     [SerializeField] private InputAction _moveAction;

@@ -38,7 +38,6 @@ public class LevelButtonsManager : MonoBehaviour
         {
             if (_saves.ComletedLevels.Contains(levelButton.GetLevelNumber() - 1))
             {
-                Debug.LogError(0);
                 levelButton.SetBlocked(false);
             }
         }

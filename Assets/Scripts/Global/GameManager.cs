@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour, IInterScene
+public class GameManager : MonoBehaviour
 {
     [SerializeField] private SingletonReferencesSO _referencesSO;
 
