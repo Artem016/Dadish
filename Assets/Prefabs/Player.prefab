@@ -228,7 +228,6 @@ MonoBehaviour:
       m_Flags: 8
     m_Flags: 0
   _jumpForce: 11
-  _distanceToCheckGround: 0.5
   _playersMovementSpeed: 5
   _downPointLeft: {fileID: 4579756452693426851}
   _downPointRight: {fileID: 3858675307819086908}
@@ -318,7 +317,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.6152812, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
