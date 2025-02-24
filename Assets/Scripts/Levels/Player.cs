@@ -7,6 +7,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static Action onPlayerDies;
+    private bool _isCollectableTake = false;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -28,5 +29,11 @@ public class Player : MonoBehaviour
     {
         Debug.LogError(0);
         onPlayerDies?.Invoke();
+    }
+
+    public void TakeCollectable()
+    {
+        _isCollectableTake = true;
+        Debug.Log("Подобран коллекционный предмет");
     }
 }
