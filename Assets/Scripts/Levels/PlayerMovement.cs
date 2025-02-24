@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    
+
     [SerializeField] private InputAction _jumpAction;
     [SerializeField] private InputAction _moveAction;
 
@@ -18,13 +21,17 @@ public class PlayerMovement : MonoBehaviour
     private float _rayDistance = 0.1f;
 
     private bool _isSecondJumpUse = false;
+    private bool _isMove;
 
     private Rigidbody2D _rb;
+
+    PlayerAnimationController _animController;
 
     private void Awake()
     {
         _jumpAction.performed += OnJumpButtonClick;
         _rb = GetComponent<Rigidbody2D>();
+        _animController = GetComponent<PlayerAnimationController>();
     }
 
     private void FixedUpdate()
@@ -52,11 +59,26 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         _playersMovementDirection = _moveAction.ReadValue<float>();
-
+        if(_playersMovementDirection != 0)
+            transform.localScale = new Vector3(Math.Sign(_playersMovementDirection), transform.localScale.y, transform.localScale.z);
         //Moving player using player rigid body.
 
-        _rb.velocity =
-            new Vector2(_playersMovementDirection * _playersMovementSpeed, _rb.velocity.y);
+        var moveVector = new Vector2(_playersMovementDirection * _playersMovementSpeed, _rb.velocity.y);
+
+        if (moveVector.x != 0 && !_isMove)
+        {
+            _animController.Run();
+            _isMove = true;
+        }
+        else if(moveVector.x == 0 && _isMove)
+        {
+            _animController.StopRun();
+            _isMove = false;
+        }
+
+
+        _rb.velocity = moveVector;
+            
     }
 
 
@@ -70,6 +92,7 @@ public class PlayerMovement : MonoBehaviour
         if  (hitRight.collider != null || hitLeft.collider != null && _rb.velocity.y == 0)
         {
             _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+            _animController.Jump();
             _isSecondJumpUse = false;
         }
         else if (!_isSecondJumpUse)
@@ -78,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
             newVelosity.y = 0;
             _rb.velocity = newVelosity;
             _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+            _animController.Jump();
             _isSecondJumpUse = true;
         }
             
@@ -85,7 +109,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.tag == "Ground")
+        if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             Land();
         }
@@ -94,5 +118,6 @@ public class PlayerMovement : MonoBehaviour
     private void Land()
     {
         _isSecondJumpUse = false;
+        _animController.Landing();
     }
 }
