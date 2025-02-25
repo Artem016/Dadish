@@ -40,6 +40,7 @@ public class Player : MonoBehaviour
     {
         onPlayerDies?.Invoke();
         _animationController.Dead();
+        _movementController.StopMove();
         _movementController.enabled = false;
 
     }
@@ -49,4 +50,6 @@ public class Player : MonoBehaviour
         _isCollectableTake = true;
         Debug.Log("Подобран коллекционный предмет");
     }
+
+
 }

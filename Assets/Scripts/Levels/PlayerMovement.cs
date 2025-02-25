@@ -107,6 +107,11 @@ public class PlayerMovement : MonoBehaviour
             
     }
 
+    public void StopMove()
+    {
+        _rb.velocity = new Vector2(0, _rb.velocity.y);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
