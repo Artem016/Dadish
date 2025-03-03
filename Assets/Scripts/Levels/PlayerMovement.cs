@@ -4,8 +4,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    
-
     [SerializeField] private InputAction _jumpAction;
     [SerializeField] private InputAction _moveAction;
 
@@ -16,22 +14,25 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform _downPointLeft;
     [SerializeField] private Transform _downPointRight;
 
-    private float _playersMovementDirection = 0;
+    float _playersMovementDirection = 0;
 
-    private float _rayDistance = 0.1f;
+    float _rayDistance = 0.1f;
 
-    private bool _isSecondJumpUse = false;
-    private bool _isMove;
+    bool _isSecondJumpUse = false;
+    bool _isMove;
 
-    private Rigidbody2D _rb;
-
+    Rigidbody2D _rb;
+    
     PlayerAnimationController _animController;
+
+    PlayerAudioController _audioController;
 
     private void Awake()
     {
         _jumpAction.performed += OnJumpButtonClick;
         _rb = GetComponent<Rigidbody2D>();
         _animController = GetComponent<PlayerAnimationController>();
+        _audioController = GetComponent<PlayerAudioController>();
     }
 
     private void FixedUpdate()
@@ -93,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
         {
             _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
             _animController.Jump();
+            _audioController.Jump();
             _isSecondJumpUse = false;
         }
         else if (!_isSecondJumpUse)
@@ -102,6 +104,7 @@ public class PlayerMovement : MonoBehaviour
             _rb.velocity = newVelosity;
             _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
             _animController.Jump();
+            _audioController.Jump();
             _isSecondJumpUse = true;
         }
             
