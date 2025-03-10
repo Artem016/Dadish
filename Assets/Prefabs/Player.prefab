@@ -273,7 +273,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -368,7 +368,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _jump: {fileID: 8300000, guid: 425d59eec74abfb4e89fc2b34c8c5b31, type: 3}
-  _run: {fileID: 0}
+  _run: {fileID: 8300000, guid: 6ec4c21ab78f70043a4c4dbea36d984a, type: 3}
+  _dead: {fileID: 8300000, guid: e13a6d96f51f1f7429c71391086cfd6e, type: 3}
 --- !u!1 &3928568252889833865
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +423,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

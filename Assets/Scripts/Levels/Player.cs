@@ -8,6 +8,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     PlayerAnimationController _animationController;
+    PlayerAudioController _audioController;
     PlayerMovement _movementController;
 
     public static Action onPlayerDies;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     {
         _animationController = GetComponent<PlayerAnimationController>();
         _movementController = GetComponent<PlayerMovement>();
+        _audioController = GetComponent<PlayerAudioController>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -40,6 +42,7 @@ public class Player : MonoBehaviour
     {
         onPlayerDies?.Invoke();
         _animationController.Dead();
+        _audioController.Dead();
         _movementController.StopMove();
         _movementController.enabled = false;
 

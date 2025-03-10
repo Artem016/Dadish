@@ -69,11 +69,13 @@ public class PlayerMovement : MonoBehaviour
         if (moveVector.x != 0 && !_isMove)
         {
             _animController.Run();
+            _audioController.Run();
             _isMove = true;
         }
         else if(moveVector.x == 0 && _isMove)
         {
             _animController.StopRun();
+            _audioController.StopRun();
             _isMove = false;
         }
 
@@ -113,6 +115,8 @@ public class PlayerMovement : MonoBehaviour
     public void StopMove()
     {
         _rb.velocity = new Vector2(0, _rb.velocity.y);
+        if(_audioController.IsRun)
+            _audioController.StopRun();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -123,9 +127,24 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            if (_audioController.IsRun)
+            {
+                _audioController.StopRun();
+            }
+        }
+    }
+
     private void Land()
     {
         _isSecondJumpUse = false;
         _animController.Landing();
+        if(!_audioController.IsRun && _isMove)
+        {
+            _audioController.Run();
+        }
     }
 }

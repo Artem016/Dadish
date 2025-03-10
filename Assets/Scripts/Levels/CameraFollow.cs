@@ -6,11 +6,12 @@ public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private Transform _target;
     [SerializeField] private Transform leftDownLimition, rightUpLimition;
+    [SerializeField] float _yDifference;
 
     private void FixedUpdate()
     {
         var newPositionX = _target.position.x;
-        var newPositionY = _target.position.y;
+        var newPositionY = _target.position.y + _yDifference;
         //newPosition.x = _target.position.x;
         //newPosition.y = _target.position.y;
         if(IsCameraPositionWithinBoundsHorizontal(newPositionX, leftDownLimition.position, rightUpLimition.position))
