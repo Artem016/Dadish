@@ -38,7 +38,7 @@ public class SaveManager : MonoBehaviour
     {
         if (!_savesSO.ComletedLevels.Contains(numberLevel))
         {
-            Debug.LogError(0);
+            //Debug.LogError(0);
             _savesSO.ComletedLevels.Add(numberLevel);
             OnSaveChange?.Invoke();
             Save();

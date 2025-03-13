@@ -1,16 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class VictoryZone : MonoBehaviour, IInteractable
 {
-    [SerializeField] SingletonReferencesSO referencesSO;
-    [SerializeField] private int levelNumber;
+    public static Action<string, int> onVictoryZoneInteract;
+
+    [SerializeField] string _dialogName;
+    [SerializeField] SingletonReferencesSO _referencesSO;
+    [SerializeField] int _levelNumber;
 
     public void Interact(Player player)
     {
-        referencesSO.GetSaveManager().AddComplatedLevel(levelNumber);
-        referencesSO.GetSceneManager().LoadMainMenu();
+        onVictoryZoneInteract?.Invoke(_dialogName, _levelNumber);
+        player.StopMove();
+
+        //referencesSO.GetSaveManager().AddComplatedLevel(levelNumber);
+        //referencesSO.GetSceneManager().LoadMainMenu();
     }
 
 }

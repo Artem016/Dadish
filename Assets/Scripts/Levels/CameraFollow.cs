@@ -30,6 +30,12 @@ public class CameraFollow : MonoBehaviour
 
     }
 
+    public void SetCameraLimitons(Transform leftBottom, Transform rightTop)
+    {
+        leftDownLimition = leftBottom;
+        rightUpLimition = rightTop;
+    }
+
     private bool IsCameraPositionWithinBoundsHorizontal(float cameraPositionX, Vector2 bottomLeftLimit, Vector2 topRightLimit)
     {
         if (cameraPositionX >= bottomLeftLimit.x && cameraPositionX <= topRightLimit.x) 

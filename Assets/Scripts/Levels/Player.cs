@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro.EditorUtilities;
-using Unity.VisualScripting;
+
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -43,9 +40,7 @@ public class Player : MonoBehaviour
         onPlayerDies?.Invoke();
         _animationController.Dead();
         _audioController.Dead();
-        _movementController.StopMove();
-        _movementController.enabled = false;
-
+        StopMove();
     }
 
     public void TakeCollectable()
@@ -54,5 +49,10 @@ public class Player : MonoBehaviour
         Debug.Log("Подобран коллекционный предмет");
     }
 
-
+    public void StopMove()
+    {
+        _animationController.StopRun();
+        _movementController.Stop();
+        _movementController.enabled = false;
+    }
 }

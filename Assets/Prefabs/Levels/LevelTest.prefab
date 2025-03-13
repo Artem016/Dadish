@@ -4310,10 +4310,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 840272664458442581}
     m_Modifications:
-    - target: {fileID: 1226262523881894020, guid: aacee61f4a3cae6448ca2806e1a9ed00, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6033201036850131333, guid: aacee61f4a3cae6448ca2806e1a9ed00, type: 3}
       propertyPath: m_Name
       value: VictiryZone

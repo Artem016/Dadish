@@ -112,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
             
     }
 
-    public void StopMove()
+    public void Stop()
     {
         _rb.velocity = new Vector2(0, _rb.velocity.y);
         if(_audioController.IsRun)
