@@ -12,6 +12,8 @@ public class DialoguesSO : ScriptableObject
     public Dialog GetByName(string name)
     {
         var dialog = dialogues.FirstOrDefault(d => d.DialogueName == name);
+        if (dialog == null)
+            Debug.LogError("dialog not found. return null");
         return dialog;
     }
 }

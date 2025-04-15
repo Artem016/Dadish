@@ -2108,7 +2108,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 126050450859524304, guid: 42fdece81d15426499e3a430fedf4f0c, type: 3}
       propertyPath: _dialogName
-      value: level_00
+      value: test_00
       objectReference: {fileID: 0}
     - target: {fileID: 4215583105134347776, guid: 42fdece81d15426499e3a430fedf4f0c, type: 3}
       propertyPath: m_Name
