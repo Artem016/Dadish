@@ -36,14 +36,14 @@ public class CameraFollow : MonoBehaviour
         rightUpLimition = rightTop;
     }
 
-    private bool IsCameraPositionWithinBoundsHorizontal(float cameraPositionX, Vector2 bottomLeftLimit, Vector2 topRightLimit)
+    public static bool IsCameraPositionWithinBoundsHorizontal(float cameraPositionX, Vector2 bottomLeftLimit, Vector2 topRightLimit)
     {
         if (cameraPositionX >= bottomLeftLimit.x && cameraPositionX <= topRightLimit.x) 
             return true;
         else
             return false;
     }    
-    private bool IsCameraPositionWithinBoundsVertical(float cameraPositionY, Vector2 bottomLeftLimit, Vector2 topRightLimit)
+    public static bool IsCameraPositionWithinBoundsVertical(float cameraPositionY, Vector2 bottomLeftLimit, Vector2 topRightLimit)
     {
         if (cameraPositionY >= bottomLeftLimit.y && cameraPositionY <= topRightLimit.y) 
             return true;
