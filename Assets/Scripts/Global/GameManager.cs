@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        _referencesSO.GetSceneManager().LoadMainMenu();
+        //_referencesSO.GetSceneManager().LoadMainMenu();
     }
 
     private void OnPlayerDies()
