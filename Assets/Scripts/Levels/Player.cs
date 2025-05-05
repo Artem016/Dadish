@@ -37,10 +37,10 @@ public class Player : MonoBehaviour
 
     public void Dead()
     {
-        onPlayerDies?.Invoke();
-        _animationController.Dead();
-        _audioController.Dead();
         StopMove();
+        onPlayerDies?.Invoke();
+        _animationController.Dead(); 
+        _audioController.Dead();
     }
 
     public void TakeCollectable()
@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
     {
         _animationController.StopRun();
         _movementController.Stop();
+        _audioController.StopRun();
         _movementController.enabled = false;
     }
 }
