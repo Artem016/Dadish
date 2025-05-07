@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour, IInteractable
 {
-    public void Interact(Player player)
+    public void EnterInteract(Player player)
     {
         player.TakeCollectable();
         Destroy(gameObject);

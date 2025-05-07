@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamagerObject : MonoBehaviour, IInteractable
+public class ButtonSwitch : MonoBehaviour, IInteractable
 {
     public void EnterInteract(Player player)
     {
-        player.Dead();
+        throw new System.NotImplementedException();
     }
 }

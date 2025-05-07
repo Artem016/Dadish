@@ -11,7 +11,7 @@ public class VictoryZone : MonoBehaviour, IInteractable
     [SerializeField] SingletonReferencesSO _referencesSO;
     [SerializeField] int _levelNumber;
 
-    public void Interact(Player player)
+    public void EnterInteract(Player player)
     {
         onVictoryZoneInteract?.Invoke(_dialogName, _levelNumber);
         player.StopMove();

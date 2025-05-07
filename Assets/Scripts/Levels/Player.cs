@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
         IInteractable interactable;
         collision.gameObject.TryGetComponent(out interactable);
         if (interactable != null)
-            interactable.Interact(this);
+            interactable.EnterInteract(this);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
         IInteractable interactable;
         collision.TryGetComponent(out interactable);
         if (interactable != null)
-            interactable.Interact(this);
+            interactable.EnterInteract(this);
     }
 
     public void Dead()

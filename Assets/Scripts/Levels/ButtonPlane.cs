@@ -24,7 +24,7 @@ public class ButtonPlane : MonoBehaviour, IInteractable
         transform.localScale = newScale;
     }
 
-    public void Interact(Player player)
+    public void EnterInteract(Player player)
     {
         onButtonPress?.Invoke();
     }
