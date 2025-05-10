@@ -2,7 +2,7 @@ using System;
 
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, ITriggerReactiveButton
 {
     PlayerAnimationController _animationController;
     PlayerAudioController _audioController;
