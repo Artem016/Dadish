@@ -2,7 +2,7 @@ using System;
 
 using UnityEngine;
 
-public class Player : MonoBehaviour, ITriggerReactiveButton
+public class Player : MonoBehaviour
 {
     PlayerAnimationController _animationController;
     PlayerAudioController _audioController;
@@ -21,18 +21,22 @@ public class Player : MonoBehaviour, ITriggerReactiveButton
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        IInteractable interactable;
-        collision.gameObject.TryGetComponent(out interactable);
-        if (interactable != null)
-            interactable.EnterInteract(this);
+        HandleEnterInteraction(collision.gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        IInteractable interactable;
-        collision.TryGetComponent(out interactable);
-        if (interactable != null)
-            interactable.EnterInteract(this);
+        HandleEnterInteraction(collision.gameObject);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        HandleExitInteraction(collision.gameObject);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        HandleExitInteraction(collision.gameObject);
     }
 
     public void Dead()
@@ -55,5 +59,20 @@ public class Player : MonoBehaviour, ITriggerReactiveButton
         _movementController.Stop();
         _audioController.StopRun();
         _movementController.enabled = false;
+    }
+
+    private void HandleEnterInteraction(GameObject other)
+    {
+        if (other.TryGetComponent<IInteractable>(out var interactable))
+            interactable.Interact(this);
+
+        if (other.TryGetComponent<IReactiveInteractable>(out var reactiveInteractable))
+            reactiveInteractable.EnterInteract();
+    }
+
+    private void HandleExitInteraction(GameObject other)
+    {
+        if (other.TryGetComponent<IReactiveInteractable>(out var reactiveInteractable))
+            reactiveInteractable.ExitInteract();
     }
 }

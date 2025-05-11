@@ -1,35 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonSwitch : MonoBehaviour
+public class ButtonSwitch : MonoBehaviour, IReactiveInteractable
 {
-    bool isPressed = false;
+    public Action OnPressed;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private bool _isPressed = false;
+
+    public bool IsPressed()
     {
-        ITriggerReactiveButton triggerReactive;
-        collision.gameObject.TryGetComponent(out triggerReactive);
-
-        if(triggerReactive != null )
-        {
-            isPressed = true;
-            Debug.LogError("press");
-        }
-            
-            
+        return _isPressed;
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public void EnterInteract()
     {
-        ITriggerReactiveButton triggerReactive;
-        collision.gameObject.TryGetComponent(out triggerReactive);
+        _isPressed = true;
+        OnPressed?.Invoke();
+    }
 
-        if (triggerReactive != null)
-        {
-            isPressed = true;
-            Debug.LogError("not press");
-        }
-
+    public void ExitInteract()
+    {
+        _isPressed = false;
     }
 }

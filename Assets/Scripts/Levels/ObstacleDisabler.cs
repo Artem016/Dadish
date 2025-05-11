@@ -9,7 +9,7 @@ public class ObstacleDisabler : MonoBehaviour, IInteractable
 
     bool _active = false;
 
-    public virtual void EnterInteract(Player player)
+    public virtual void Interact(Player player)
     {
         if (!_active)
         {
