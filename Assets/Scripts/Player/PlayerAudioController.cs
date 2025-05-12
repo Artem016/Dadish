@@ -32,6 +32,13 @@ public class PlayerAudioController : MonoBehaviour
     {
         _audioSource.Stop();
         IsRun = false;
+    }    
+    
+    public void EndRun()
+    {
+        _audioSource.Stop();
+        IsRun = false;
+        _audioSource.enabled = false;
     }
 
     public void Dead()

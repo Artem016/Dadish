@@ -13,9 +13,8 @@ public class VictoryZone : MonoBehaviour, IInteractable
 
     public void Interact(Player player)
     {
-        onVictoryZoneInteract?.Invoke(_dialogName, _levelNumber);
         player.StopMove();
-
+        onVictoryZoneInteract?.Invoke(_dialogName, _levelNumber);
         //referencesSO.GetSaveManager().AddComplatedLevel(levelNumber);
         //referencesSO.GetSceneManager().LoadMainMenu();
     }

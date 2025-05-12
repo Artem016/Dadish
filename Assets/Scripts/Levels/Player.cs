@@ -55,10 +55,10 @@ public class Player : MonoBehaviour
 
     public void StopMove()
     {
+        _audioController.EndRun();
         _animationController.StopRun();
         _movementController.Stop();
-        _audioController.StopRun();
-        _movementController.enabled = false;
+        _movementController.enabled = false;  
     }
 
     private void HandleEnterInteraction(GameObject other)
