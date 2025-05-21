@@ -31,6 +31,7 @@ public class DialogueManager : MonoBehaviour
     private void OnDestroy()
     {
         StopAllCoroutines();
+        VictoryZone.onVictoryZoneInteract -= OnVictoryZoneInteract;
     }
 
     public void ShowNextLine()
@@ -48,6 +49,7 @@ public class DialogueManager : MonoBehaviour
 
     private void EndDialogue()
     {
+        Debug.Log("End dialogue");
         _nextLineAction.Disable();
         _dialoguePanel.SetActive(false);
         StopAllCoroutines();
@@ -59,6 +61,8 @@ public class DialogueManager : MonoBehaviour
 
     private void StartDialogue(Dialog dialog)
     {
+        Debug.Log("Start dialogue");
+        Debug.Log(_dialoguePanel);
         _currentDialog = dialog;
         _dialoguePanel.SetActive(true);
         _currentLineNumber = 0;

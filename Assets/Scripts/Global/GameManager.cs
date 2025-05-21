@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         //_referencesSO.GetSceneManager().LoadMainMenu();
+        Debug.Log("GameOver");
     }
 
     private void OnPlayerDies()

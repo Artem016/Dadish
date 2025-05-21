@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
+public class CameraFollo : MonoBehaviour
 {
     [SerializeField] private Transform _target;
     [SerializeField] private Transform leftDownLimition, rightUpLimition;

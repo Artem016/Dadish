@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
 
     public void Dead()
     {
+        Debug.Log("Player dead");
         StopMove();
         onPlayerDies?.Invoke();
         _animationController.Dead(); 

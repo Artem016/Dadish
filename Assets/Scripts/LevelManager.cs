@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] Transform _leftBottomLimition, _rightTopLimitiom;
-    [SerializeField] CameraFollow _cameraFollow;
+    [SerializeField] CameraFollo _cameraFollow;
 
     public void Initialize()
     {

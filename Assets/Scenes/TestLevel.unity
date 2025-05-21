@@ -441,7 +441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _leftBottomLimition: {fileID: 241253489}
   _rightTopLimitiom: {fileID: 574948075}
-  _cameraFollow: {fileID: 519420033}
+  _cameraFollow: {fileID: 519420035}
 --- !u!4 &381165115
 Transform:
   m_ObjectHideFlags: 0
@@ -4172,8 +4172,8 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  - component: {fileID: 519420033}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4255,22 +4255,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519420033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6faf442f2e918ea4e8f175aeac2b0131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _target: {fileID: 1444621481}
-  leftDownLimition: {fileID: 31164742}
-  rightUpLimition: {fileID: 741156577}
-  _yDifference: 1
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4315,6 +4299,22 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d378ad12cb9e98f43a11c22eb224aab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 1444621481}
+  leftDownLimition: {fileID: 0}
+  rightUpLimition: {fileID: 0}
+  _yDifference: 0
 --- !u!1 &556075786
 GameObject:
   m_ObjectHideFlags: 0
@@ -4332,7 +4332,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &556075788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4357,7 +4357,7 @@ Transform:
   m_GameObject: {fileID: 556075786}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5299,7 +5299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _leftBottomLimition: {fileID: 31164742}
   _rightTopLimitiom: {fileID: 741156577}
-  _cameraFollow: {fileID: 519420033}
+  _cameraFollow: {fileID: 519420035}
 --- !u!1001 &1104100818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5639,7 +5639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogName: test_00
   _referencesSO: {fileID: 11400000, guid: 09e086afcb920aa4cad86f9b2c065ab5, type: 2}
-  _levelNumber: 3
+  _levelNumber: 2
 --- !u!61 &1126849185
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6138,7 +6138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogName: test_00
   _referencesSO: {fileID: 11400000, guid: 09e086afcb920aa4cad86f9b2c065ab5, type: 2}
-  _levelNumber: 4
+  _levelNumber: 3
 --- !u!61 &1546332856
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6390,7 +6390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _leftBottomLimition: {fileID: 1643695219}
   _rightTopLimitiom: {fileID: 1643695218}
-  _cameraFollow: {fileID: 519420033}
+  _cameraFollow: {fileID: 519420035}
 --- !u!1 &1644086982
 GameObject:
   m_ObjectHideFlags: 0
@@ -11877,7 +11877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _leftBottomLimition: {fileID: 1823112681}
   _rightTopLimitiom: {fileID: 985408976}
-  _cameraFollow: {fileID: 519420033}
+  _cameraFollow: {fileID: 519420035}
 --- !u!4 &2134590733
 Transform:
   m_ObjectHideFlags: 0
@@ -16775,6 +16775,10 @@ PrefabInstance:
       propertyPath: m_ColliderPaths.Array.data[0].m_ColliderPaths.Array.data[2].Array.data[26].Y
       value: -40000000
       objectReference: {fileID: 0}
+    - target: {fileID: 7805428926712542626, guid: 42fdece81d15426499e3a430fedf4f0c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8863141761652881473, guid: 42fdece81d15426499e3a430fedf4f0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.06
@@ -17252,7 +17256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _leftBottomLimition: {fileID: 1094457928399396506}
   _rightTopLimitiom: {fileID: 8149442124434044973}
-  _cameraFollow: {fileID: 519420033}
+  _cameraFollow: {fileID: 519420035}
 --- !u!19719996 &6144155445835038048
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -19367,7 +19371,6 @@ SceneRoots:
   - {fileID: 1111204262}
   - {fileID: 678903906}
   - {fileID: 500373149}
-  - {fileID: 556075789}
   - {fileID: 819090411367475489}
   - {fileID: 5834711587281176288}
   - {fileID: 2134590733}
@@ -19375,3 +19378,4 @@ SceneRoots:
   - {fileID: 1643695216}
   - {fileID: 2134757211}
   - {fileID: 690096396}
+  - {fileID: 556075789}

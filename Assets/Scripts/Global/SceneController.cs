@@ -20,6 +20,7 @@ public class SceneController : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         _referencesSO.SetSceneManager(this);
+        LoadMainMenu();
     }
 
     public void LoadLevel(int number)

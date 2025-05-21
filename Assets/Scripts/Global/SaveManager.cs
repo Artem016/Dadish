@@ -50,6 +50,7 @@ public class SaveManager : MonoBehaviour
         if (!File.Exists(savePath))
         {
             File.Create(savePath);
+            Debug.Log("Save file not exists. Create new file.");
         }
 
         JsonSerializer serializer = new JsonSerializer();
@@ -57,6 +58,7 @@ public class SaveManager : MonoBehaviour
         saveData.CompletedLevels = _savesSO.ComletedLevels;
         string json = JsonConvert.SerializeObject(saveData);
         File.WriteAllText(savePath, json);
+        Debug.Log("Save progress.");
     }
 
     public void Load()
@@ -64,6 +66,7 @@ public class SaveManager : MonoBehaviour
         if (!File.Exists(savePath))
         {
             File.Create(savePath);
+            Debug.Log("Save file not exists. Create new file.");
         }
         using (StreamReader sr = new StreamReader(savePath))
         {
@@ -87,6 +90,7 @@ public class SaveManager : MonoBehaviour
             {
                 OnLoadSave?.Invoke();
             }
+            Debug.Log("Load progress");
         }
     }
 }
