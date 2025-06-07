@@ -62,6 +62,16 @@ public class Player : MonoBehaviour
         _movementController.enabled = false;  
     }
 
+    public void PauseMove()
+    {
+        _movementController.enabled = false;
+    }
+
+    public void UnpauseMove()
+    {
+        _movementController.enabled = true;
+    }
+
     private void HandleEnterInteraction(GameObject other)
     {
         if (other.TryGetComponent<IInteractable>(out var interactable))
