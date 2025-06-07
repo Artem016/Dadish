@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DeadMenu : MonoBehaviour
 {
-    [SerializeField] GameObject _background, _restartButton;
+    [SerializeField] PanelController _panelController;
     [SerializeField] SingletonReferencesSO referencesSO;
 
     void Start()
@@ -20,8 +20,7 @@ public class DeadMenu : MonoBehaviour
 
     public void ShowDeadMenu()
     {
-        _background.SetActive(true);
-        _restartButton.SetActive(true);
+        _panelController.OpenRestartPanel();
     }
 
     public void RestartButton_OnClick()

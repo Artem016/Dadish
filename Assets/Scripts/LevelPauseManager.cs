@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class LevelPauseManager : MonoBehaviour
 {
     [SerializeField] InputAction _pauseAction;
-    [SerializeField] GameObject _pauseMenu, _blackout;
+    [SerializeField] PanelController _panelController;
     [SerializeField] SingletonReferencesSO _references;
     [SerializeField] Player _player;
 
@@ -27,15 +27,13 @@ public class LevelPauseManager : MonoBehaviour
 
     void OnPauseKeyPressed(InputAction.CallbackContext context)
     {
-        _pauseMenu.SetActive(true);
-        _blackout.SetActive(true);
+        _panelController.OpenPausePanel();
         Pause();
     }
 
     public void OnContinue_Click()
     {
-        _pauseMenu.SetActive(false);
-        _blackout.SetActive(false);
+        _panelController.CloseSelectPanel();
         Unpause();
     }
 
