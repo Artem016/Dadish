@@ -14,6 +14,7 @@ public class SaveManager : MonoBehaviour
 
     [SerializeField] private SingletonReferencesSO _referencesSO;
     [SerializeField] private SavesSO _savesSO;
+    [SerializeField] private SettingsSO _settingsSO;
 
 
     private static string savePath;
@@ -56,6 +57,8 @@ public class SaveManager : MonoBehaviour
         JsonSerializer serializer = new JsonSerializer();
         SaveData saveData = new SaveData();
         saveData.CompletedLevels = _savesSO.ComletedLevels;
+        saveData.SoundVolume = _settingsSO.SoundVolume;
+        saveData.MusicVolume = _settingsSO.MusicVolume;
         string json = JsonConvert.SerializeObject(saveData);
         File.WriteAllText(savePath, json);
         Debug.Log("Save progress.");
@@ -80,6 +83,8 @@ public class SaveManager : MonoBehaviour
             else
             {
                 _savesSO.ComletedLevels = deserializeSave.CompletedLevels;
+                _settingsSO.MusicVolume = deserializeSave.MusicVolume;
+                _settingsSO.SoundVolume = deserializeSave.SoundVolume;
             }
 
             if(_savesSO.ComletedLevels.Count <= 0)
@@ -97,5 +102,7 @@ public class SaveManager : MonoBehaviour
 
 public class SaveData
 {
+    public float MusicVolume = 1;
+    public float SoundVolume = 1;
     public List<int> CompletedLevels;
 }

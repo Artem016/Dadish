@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _referencesSO: {fileID: 11400000, guid: 09e086afcb920aa4cad86f9b2c065ab5, type: 2}
   _savesSO: {fileID: 11400000, guid: cb39d2ce11af29e4cab738c2fda04c10, type: 2}
+  _settingsSO: {fileID: 11400000, guid: 1dd940ea61b132f4d90592f3d16749e3, type: 2}
 --- !u!114 &45445344
 MonoBehaviour:
   m_ObjectHideFlags: 0

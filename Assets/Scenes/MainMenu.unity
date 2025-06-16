@@ -304,11 +304,6 @@ MonoBehaviour:
   _levelButtons:
   - {fileID: 8489235607797324654}
   - {fileID: 322068286}
-  - {fileID: 802536199}
-  - {fileID: 168345745}
-  - {fileID: 1686120882}
-  - {fileID: 1089886411}
-  - {fileID: 837670822}
   _saves: {fileID: 11400000, guid: cb39d2ce11af29e4cab738c2fda04c10, type: 2}
 --- !u!4 &94542566
 Transform:

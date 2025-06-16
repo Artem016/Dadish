@@ -895,7 +895,8 @@ MonoBehaviour:
   _mixer: {fileID: 24100000, guid: 90bf0e5bd74edd841bfce975362fe64a, type: 2}
   _backroundMusicSlider: {fileID: 1860061646}
   _playerSlider: {fileID: 1931846775}
-  _pauseMenu: {fileID: 603525756}
+  references: {fileID: 11400000, guid: 09e086afcb920aa4cad86f9b2c065ab5, type: 2}
+  settings: {fileID: 11400000, guid: 1dd940ea61b132f4d90592f3d16749e3, type: 2}
 --- !u!4 &395442266
 Transform:
   m_ObjectHideFlags: 0
@@ -5569,8 +5570,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _selectedLevelData: {fileID: 11400000, guid: 6c2bdd9fcecb64a4e9115a19d6eb921a, type: 2}
   _levels:
-  - {fileID: 1089450364}
   - {fileID: 5834711587281176289}
+  - {fileID: 1089450364}
   - {fileID: 2134590732}
   - {fileID: 381165114}
   - {fileID: 1643695220}
@@ -6871,9 +6872,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4661c732ccedeb449852e171470bcc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogName: test_00
+  _dialogName: level_03
   _referencesSO: {fileID: 11400000, guid: 09e086afcb920aa4cad86f9b2c065ab5, type: 2}
-  _levelNumber: 2
+  _levelNumber: 3
 --- !u!61 &1126849185
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9295,9 +9296,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 395442264}
+      - m_Target: {fileID: 395442265}
         m_TargetAssemblyTypeName: SoundSetting, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: SetPlayerVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14627,7 +14628,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &126111323441081621
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14699,7 +14700,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 126050450859524304, guid: 42fdece81d15426499e3a430fedf4f0c, type: 3}
       propertyPath: _dialogName
-      value: test_00
+      value: level_02
       objectReference: {fileID: 0}
     - target: {fileID: 371790758087892726, guid: 42fdece81d15426499e3a430fedf4f0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14711,7 +14712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4215583105134347776, guid: 42fdece81d15426499e3a430fedf4f0c, type: 3}
       propertyPath: m_Name
-      value: Level_01
+      value: Level_02
       objectReference: {fileID: 0}
     - target: {fileID: 4215583105134347776, guid: 42fdece81d15426499e3a430fedf4f0c, type: 3}
       propertyPath: m_IsActive
@@ -19409,7 +19410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4661c732ccedeb449852e171470bcc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogName: test_00
+  _dialogName: level_01
   _referencesSO: {fileID: 11400000, guid: 09e086afcb920aa4cad86f9b2c065ab5, type: 2}
   _levelNumber: 1
 --- !u!4 &1094457928399396506
@@ -19512,8 +19513,8 @@ Transform:
   m_GameObject: {fileID: 103558659135102629}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0194, y: -0, z: 0}
-  m_LocalScale: {x: 1.8612765, y: 2.9546795, z: 1}
+  m_LocalPosition: {x: 0, y: -1.4, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7370952605197104590}
@@ -19705,7 +19706,7 @@ GameObject:
   - component: {fileID: 5834711587281176288}
   - component: {fileID: 5834711587281176289}
   m_Layer: 0
-  m_Name: Level_02
+  m_Name: Level_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19935,7 +19936,7 @@ Transform:
   m_GameObject: {fileID: 4886785104536084388}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.19, y: -0.51, z: 0}
+  m_LocalPosition: {x: 10.19, y: -0.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21808,7 +21809,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300150, guid: 7810966f0f690954c87305933cabf2b0, type: 3}
   m_Color: {r: 0.43516377, g: 0.7264151, b: 0.7209364, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -21978,8 +21979,8 @@ SceneRoots:
   - {fileID: 2134757211}
   - {fileID: 678903906}
   - {fileID: 500373149}
-  - {fileID: 819090411367475489}
   - {fileID: 5834711587281176288}
+  - {fileID: 819090411367475489}
   - {fileID: 2134590733}
   - {fileID: 381165115}
   - {fileID: 1643695216}

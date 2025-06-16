@@ -9,23 +9,36 @@ public class SoundSetting : MonoBehaviour
 {
     [SerializeField] AudioMixer _mixer;
     [SerializeField] Slider _backroundMusicSlider, _playerSlider;
-    [SerializeField] GameObject _pauseMenu;
+    [SerializeField] SingletonReferencesSO references;
+    [SerializeField] SettingsSO settings;
 
     public void SetMusicVolume()
     {
-        float volume = _backroundMusicSlider.value;
-        _mixer.SetFloat("music", Mathf.Log10(volume) * 20);
+        settings.MusicVolume = _backroundMusicSlider.value;
+        _mixer.SetFloat("music", Mathf.Log10(settings.MusicVolume) * 20);
+        
     }    
     public void SetPlayerVolume()
     {
-        float volume = _playerSlider.value;
-        _mixer.SetFloat("player", Mathf.Log10(volume) * 20);
+        settings.SoundVolume = _playerSlider.value;
+        _mixer.SetFloat("player", Mathf.Log10(settings.SoundVolume) * 20);
     }
 
-    public void BackToPauseMenu_Click()
+    private void Load()
     {
-        _pauseMenu.SetActive(true);
-        gameObject.SetActive(false);
+        _backroundMusicSlider.value = settings.MusicVolume;
+        _playerSlider.value = settings.SoundVolume;
+        SetPlayerVolume();
+        SetMusicVolume();
     }
 
+    private void OnDestroy()
+    {
+        references.GetSaveManager().Save();
+    }
+
+    private void Start()
+    {
+        Load();
+    }
 }
